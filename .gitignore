@@ -1,0 +1,19 @@
+# C++ compiled executables
+main
+*.out
+*.exe
+
+# Object files
+*.o
+*.obj
+
+# Debug symbols
+*.dSYM/
+
+# Compiled libraries
+*.so
+*.a
+*.dll
+
+# Mac executables
+*.out

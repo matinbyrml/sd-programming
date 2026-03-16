@@ -1,0 +1,28 @@
+The main program receives an integer n on the command line.
+Then, it calls three functions:
+1. The first one dynamically allocates an array of size "n" of real values
+   and reads the array from standard input.
+2. The second sorts the array in increasing order.
+3. The third function displays the sorted array on standard output.
+
+
+Write, compile, and debug two versions of this project:
+1. The first one includes all functions in a single C++ file.
+2. The second one inserts the main and the three functions in three
+   separate ".cpp" files. Use a private ".h" file for global
+   declarations and definitions.
+
+
+Suggestions
+-----------
+
+
+1. Define the array using C-like dynamic memory allocation:
+   float *vet;
+   ...
+   vet = (float *) malloc (n * sizeof (float));
+   if (vet==nullptr) { ... error ... }
+
+
+2. Uses one of the main sorting algorithms at your choice (i.e.,
+   insertion sort, selection sort, quick-sort, etc.)
