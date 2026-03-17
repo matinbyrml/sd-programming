@@ -1,0 +1,17 @@
+Write a C program that receives two integer values on the command line,
+h and n, and it generates a process tree of height h and degree n.
+
+
+For example, if h=3 and n=2:
+- The main process creates two processes and exits
+- Each one of these two processes creates two other processes and exit
+- Each one of these four processes creates two other processes and exit
+at this point, eight processes run on the tree leaf, and the program
+stops.
+
+
+In mode detail, each node of the tree is a process.
+The initial process generates n child jobs and exits.
+All child processes must do the same thing, causing several
+processes on the tree leaves equal to n^h.
+Processes on the leaves must all display their own PID and end.
