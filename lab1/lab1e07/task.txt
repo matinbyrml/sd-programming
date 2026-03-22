@@ -1,0 +1,51 @@
+Code implementation with threads
+(a variant of exercise 05 but with threads)
+-------------------------------------------
+
+
+Implement a C program, thread_generation, that receives on the command
+line an integer parameter n.
+The parent thread creates two threads and waits for their termination.
+Each further thread creates other two threads, awaiting their
+termination. 
+Tread creation stops after 2^n threads have been created a the same "level",
+i.e., the threads standing on the leaves of a tree must be 2^n.
+
+
+For example, if n=3
+- The main thread creates two threads
+- Each one of these two threads creates two other threads
+- Each one of these four threads creates two other threads.
+At this point, eight leaf threads are running, and the program must stop.
+
+
+Each leaf thread must print its generation tree, i.e., the sequence of thread
+identifiers from the main thread (the tree root) to the leaf thread (the tree
+leaf).
+
+
+The following is an example of the program execution: 
+
+
+quer@quer-VirtualBox:~/current/sdp$ ./l01e05 3
+T=140257290860224 --> 140257425962816 140257417565888 140257324431040
+T=140256846276288 --> 140257425962816 140257425958592 140257400780480
+T=140257299252928 --> 140257425962816 140257425958592 140257316038336
+T=140257307645632 --> 140257425962816 140257417565888 140257324431040
+T=140256854668992 --> 140257425962816 140257425958592 140257400780480
+T=140256837883584 --> 140257425962816 140257417565888 140257409173184
+T=140257274074816 --> 140257425962816 140257425958592 140257316038336
+T=140257282467520 --> 140257425962816 140257417565888 140257409173184
+
+
+In the previous example, the numbers are the thread identifiers displayed
+as "long integer values".
+
+
+Suggestion
+----------
+
+
+Instead of printing (and storing) thread identifiers (tids) as "long integer"
+values, you can store and display "user thread identifiers", e.g., integer
+numbers given by the user to each thread.
