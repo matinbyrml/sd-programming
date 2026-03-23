@@ -40,6 +40,15 @@ int main(int argc, char* argv[]) {
         // Write the raw bytes of the struct directly to the binary file
         // We cast the memory address of 'record' to a char pointer, and tell it how many bytes to write.
         outBinary.write((char*)&record, sizeof(ExamRecords));
+        /*
+            a char is simply a block of memory that is exactly 1 byte wide.
+            Because write() only deals in raw bytes, its creators designed it to strictly accept a 
+            char * (a pointer to a character array). It basically says, "Give me a pointer to the first byte, 
+            tell me how many bytes to walk forward, and I will copy them."
+
+            // The modern C++ way:
+            myFile.read(reinterpret_cast<char*>(&record), sizeof(ExamRecords));
+        */
     }
 
     // Always close files when done!
