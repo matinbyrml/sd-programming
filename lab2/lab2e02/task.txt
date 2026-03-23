@@ -1,0 +1,56 @@
+Random File Walks
+-----------------
+
+
+A file stores *binary* information with the following *fixed-length* records
+
+
+1 100000 Romano Antonio 25
+2 150000 Fabrizi Aldo 22
+3 200000 Verdi Giacomo 15
+4 250000 Rossi Luigi 30
+
+
+Write a C++ program to implement a user menu with the following options:
+- R n: Where R is the character 'R', and n is an integer value.
+       Read from the file the record representing student number n and
+       display this information on standard output.
+- W n: Where W is the character 'W', and n is an integer value.
+       Read from standard input all data fields for the student number
+       n and write them in the file in position n.    
+- E: End the program.
+The program receives the input file name on the command line.
+
+
+The following is an example of execution (using the file presented in
+Exercise 01):
+
+
+> R 3     // Read info for student 3
+3 200000 Verdi Giacomo 15
+> R 1     // Read info for student 1
+1 100000 Romano Antonio 25
+> W 1     // Over-write info for the student in position 1
+          // with info read from standard input
+          // Read input data
+Data: 1 100000 Romano Antonio 27
+          // Overwrite record on file ...
+> W 5     // Add info for the student in position 5
+          // with info read from standard input
+          // Read input data
+Data: 5 157143 White House 30
+          // Overwrite record on file ...
+> E       // End program
+
+
+where
+- "//" specifies explanatory comments, not program I/O lines
+- "R 3", "R 1", "W 1", etc., are the user inputs
+- All other characters belong to the program output.
+
+
+Suggestions
+-----------
+Use the proper method to access the file randomly.
+As all records have the same size, it is possible to define the position
+of each record.
