@@ -45,6 +45,20 @@ struct Rectangle {
         // Method decleration
         int getArea();
 };
+
+// Inheritance:
+
+class TemperatureSensor : public Sensor{
+    private:
+        string unit;
+    public:
+        // NOTE: but we have to make id and size in Sensor class as protected instead of private now
+        TemperatureSensor(int id, int size, string unit) : Sensor(id, size){
+            this->unit = unit;
+        }
+
+};
+
 // Method definition
 int Rectangle::getArea(){
     return this->w*this->h;
