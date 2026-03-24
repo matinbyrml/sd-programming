@@ -38,6 +38,7 @@ int main(){
      Sensor s1(1, 10);
     }
     // Now object is out of scope; deconstructor is triggered
-
+    // In C++, objects are destroyed in the exact reverse order of their construction
+    // stack is LIFO
     return 0;
 }
