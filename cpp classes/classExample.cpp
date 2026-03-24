@@ -32,6 +32,24 @@ class Sensor{
         }
 };
 
+struct Rectangle {
+    private:
+        int w;
+        int h;
+    // Publiv by default
+    public:
+        Rectangle(int w, int h){
+            this->w=w;
+            this->h=h;
+        }
+        // Method decleration
+        int getArea();
+};
+// Method definition
+int Rectangle::getArea(){
+    return this->w*this->h;
+}
+
 int main(){
     // Lets create an instance inside a scope:
     {
@@ -40,5 +58,11 @@ int main(){
     // Now object is out of scope; deconstructor is triggered
     // In C++, objects are destroyed in the exact reverse order of their construction
     // stack is LIFO
+
+
+    Rectangle rect(10, 5); // Calls the class constructor
+    
+    // Calls the externally defined method
+    cout << "Rectangle Area: " << rect.getArea() << endl;
     return 0;
 }
