@@ -4,6 +4,13 @@
 
 using namespace std;
 
+struct Student{
+    string firstName;
+    string lastName;
+    int studentId;
+};
+
+
 int main(){
     string filename = "students.txt";
 
@@ -30,11 +37,10 @@ int main(){
         return 1;
     }
 
-    string firstName, lastname;
-    int studentid;
+    Student student;
 
-    while(inFile >> firstName >> lastname >> studentid){
-        cout << "Reading student" << firstName << " " << lastname << " with id: " << studentid << endl;
+    while(inFile >> student.firstName >> student.lastName >> student.studentId){
+        cout << "Reading student" << student.firstName << " " << student.lastName << " with id: " << student.studentId << endl;
     }
 
     inFile.close();
