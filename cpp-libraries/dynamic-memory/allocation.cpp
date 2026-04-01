@@ -37,4 +37,16 @@ int main(){
 
     // we use delete[] to deallocate memory allocated for an array
     delete[] dataArray; // Deallocate the array memory
+
+    Sensor* s2 = new Sensor("Pressure_01");
+    Sensor* s3 = s2; // s3 is now pointing to the EXACT same memory as s2
+    
+    delete s2; // We delete the object
+    s2 = nullptr; // We safely nullify s2 
+    
+    // THE TRAP: s3 is STILL pointing to the deleted memory! It is a Dangling Pointer!
+    if (s3 != nullptr) {
+        cout << "DANGER: s3 thinks it is valid, but points to dead memory!" << endl;
+        // cout << s3->name; // If we uncomment this, the program will likely crash
+    }
 }
