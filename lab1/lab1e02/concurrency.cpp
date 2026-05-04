@@ -17,8 +17,10 @@ int main(){
       case 1: fork(); break;
       // fork() returns 0 to the child, and a number greater than 0 to the parent.
       // This is how we write if statements to make them do different things
-      case 2: pid=fork(); if (pid!=0) system ("echo case 2"); break; // system() pauses the parent. It delegates a command to the terminal and waits for it to finish
-      // exec() is a point of no return. Once a process calls execlp, it is destroyed and replaced by the new program. It will never return to the loop
+      case 2: pid=fork(); if (pid!=0) system ("echo case 2"); break; // system() pauses the parent. 
+      //It delegates a command to the terminal and waits for it to finish
+      // exec() is a point of no return. Once a process calls execlp, it is destroyed and replaced by the new program.
+      // It will never return to the loop
       case 3: execlp ("echo", "myPgrm", "case 3", NULL); break;
     }
   }
