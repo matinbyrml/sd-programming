@@ -53,7 +53,8 @@ int main(int argc, char* argv[]){
 
     for(int i = 0; i<n;i++){
         results[i].filename =  argv[i+1];
-        threads.emplace_back(processFile, std::ref(results[i]));
+        //threads start running here 
+        threads.emplace_back(processFile, std::ref(results[i])); // pass by reference so results in main are updated
     }
 
     for(auto& t: threads){
