@@ -1,0 +1,20 @@
+Ex 6 (4.0 points)
+Implement a CUDA program that performs filtered vector addition. Given two integer vectors a and b of size n,
+compute:
+s = a[i] + b[i]
+for each element. Store s into vector c only if:
+s > threshold
+The output vector c must be compact, i.e., it must contain only valid values (in any order) and no gaps. Your
+program must:
+● Use one CUDA thread per input element.
+● Use atomicAdd to reserve positions in c.
+● Copy both c and the number of valid elements back to the host.
+● Print the compacted vector.
+Motivate the selection of the grid and block size.
+The following is a correct example
+a = {1,4,7,2,9}
+b = {3,5,1,6,4}
+threshold = 8
+The valid sums (for elements in positions 4 and 1, respectively) are: {13, 9} or {9, 13}.
+Suggestion: Notice that the element a[i]+b[i] must not necessarily be copied into c[i], but it can be
+copied or not, and if it is copied, it can be copied in any position
