@@ -1,0 +1,33 @@
+Using the C++ (3.0 points) or the C++/CUDA (4.0 points) language, write a simulation system capable of
+modeling the movement of a large number of pedestrians (called agents) within an urban environment
+represented by a matrix. The program performs the following steps:
+● It receives two parameters on the command line: A file name FNAME and an integer value N.
+3
+● It reads the ASCII file FNAME. This stores an enormous matrix. The first line of the matrix reports its
+size. Each subsequent line of the file reports a row of the matrix: A value equal to zero indicates that
+the cell is empty, and a long integer number indicates the ID of an agent (pedestrian). Values are
+separated by single spaces. The following is an example of such a matrix:
+1048576 1048576
+0 0 0 12 0 13456 0 0 0 …
+234567 0 0 0 0 0 0 3535 0 0 0 …
+…
+● It runs through a cycle N times and, for each iteration, it runs a thread (directly in C++ or through a
+kernel in C++/CUDA) for each cell of the matrix.
+● Each thread simulates the random walk of an agent in the matrix:
+○ If the cell contains a value equal to zero, the thread does nothing.
+○ If the cell contains a value different from zero (i.e., an agent), it randomly decides in which cell,
+among the at most eight contiguous cells, the agent will move at the next iteration. In CUDA
+suppose that there is a function named my_curand() that generates a random number
+included in the range [0, 1], and returns it. Then it uses the atomic operation
+int atomicCAS(int* address, int compare, int val);
+to move the agent in the selected contiguous cells.
+The “atomic compare and swap instruction” gets the value old from the cell pointed by
+address and performs the following operation:
+(old == compare ? val : old)
+That is, if the destination cell pointed by address (and storing value old) contains zero (i.e.,
+compare), the thread writes in that cell val (i.e., the ID of its agent), otherwise, it writes old
+back. Obviously, agents must move inside the matrix, never get out of it, no two agents can
+occupy the same cell during the same simulation cycle, and, eventually, an agent can remain in
+the same cell.
+● After each iteration, all threads must synchronize before performing the next iteration and moving all
+agents again
