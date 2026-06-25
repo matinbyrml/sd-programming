@@ -1,0 +1,6 @@
+Write a C++ program using promises and futures. The main program runs three threads: A, B, and C, and reads from standard input an integer N and a real value V. Once the value has been read, the threads can start working, and:
+•
+Thread A must generate a vector of real values of size N, and sort the vector in ascending order.
+Thread B must wait for the vector produced by thread A and perform a binary search for the real value V.
+Thread C must wait for the result produced by thread B and must write:
+The index of value in the sorted vector, if the value is found. The string "KO" otherwise

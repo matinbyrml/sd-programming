@@ -50,7 +50,7 @@ int main(){
     // now we can transfer data in binary format 
     cudaMemcpy(d_a, h_a.data(), size, cudaMemcpyHostToDevice);
     cudaMemcpy(d_b, h_b.data(), size, cudaMemcpyHostToDevice);
-    cudaMemcpy(d_count(), &h_count, sizeof(int),cudaMemcpyHostToDevice);
+    cudaMemcpy(d_count, &h_count, sizeof(int),cudaMemcpyHostToDevice);
 
     // choose a multiple of 32 
     int threadsPerBlock = 256; 
