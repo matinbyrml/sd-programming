@@ -1,4 +1,3 @@
-Ex 6 (4.0 points)
 Implement a CUDA program that performs filtered vector addition. Given two integer vectors a and b of size n,
 compute:
 s = a[i] + b[i]

@@ -15,7 +15,7 @@ __global__ void computeHistogramKernel(const unsigned char* d_vec, unsigned int*
 }
 
 int main() {
-    const int size = 20'000'000; 
+    const int size = 512 
     const int num_bins = 256; 
 
     std::vector<unsigned char> h_vec(size);
@@ -36,6 +36,8 @@ int main() {
     cudaMalloc(&d_vec, size * sizeof(unsigned char)); 
     cudaMalloc(&d_histogram, num_bins * sizeof(unsigned int)); 
     cudaMemcpy(d_vec, h_vec.data(), size * sizeof(unsigned char), cudaMemcpyHostToDevice); 
+    // This works, but is slow!
+    cudaMemcpy(d_histogram, h_histogram.data(), num_bins * sizeof(unsigned int), cudaMemcpyHostToDevice);
     cudaMemset(d_histogram, 0, num_bins * sizeof(unsigned int)); 
     int threadsPerBlock = 256; 
     int blocksPerGrid = (size + threadsPerBlock - 1) / threadsPerBlock; 
