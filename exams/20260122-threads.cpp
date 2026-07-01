@@ -27,6 +27,7 @@ int main() {
     const int num_bins = 256;
     
     std::vector<unsigned short> vec(size);
+    
     std::random_device rd;
     std::mt19937 gen(rd());
     std::uniform_int_distribution<unsigned short> distr(0, 255);
