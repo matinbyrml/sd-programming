@@ -1,3 +1,10 @@
+/*
+The question asks us to calculate the dot product of two large vectors, v1 and v2, of size n. 
+The exam specifically restricts the design to two stages:
+Stage One (Device/GPU): A simple kernel runs n threads to calculate the element-wise product 
+mult[i] = v1[i] * v2[i] and stores it in an intermediate array in global memory. 
+Stage Two (Host/CPU): A sequential iteration performs the sum of all elements in the mult array.  
+*/
 #include <iostream>
 #include <vector>
 #include <cuda_runtime.h>

@@ -6,7 +6,7 @@
 #include <chrono>
 
 const int N = 5; // Number of worker threads (T_1 to T_n)
-
+using namespace std;
 // The required synchronization primitives
 std::counting_semaphore<N> sem_start(0); // Blocks workers until T signals them
 std::counting_semaphore<1> sem_end(0);   // Blocks T until all workers finish

@@ -1,5 +1,5 @@
 /*
-    recursive implementation of fibonacci sequence ising promises and futures
+    ecursive implementation of fibonacci sequence ising promises and futures
 */
 #include <iostream>
 #include <future>
